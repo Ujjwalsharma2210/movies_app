@@ -47,7 +47,7 @@ Widget MovieListTile(BuildContext context, Movie movie) {
                     ),
                   ),
                   SizedBox(
-                    height: 320,
+                    height: 350,
                     child: ClipRRect(
                       child: Image.network(movie.posterUrl),
                       borderRadius: BorderRadius.circular(borderRadius),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 
 import 'get_movies.dart';
 
@@ -14,8 +13,6 @@ class MovieDetailsPage extends StatefulWidget {
 }
 
 class _MovieDetailsPageState extends State<MovieDetailsPage> {
-  final _mybox = Hive.openBox('mybox');
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,13 +41,13 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
               padding: const EdgeInsets.only(top: 10),
               child: Text(
                 widget.movie.overview,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18,
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
+            const Padding(
+              padding: EdgeInsets.only(top: 10),
               child: Text(
                 "Released on",
                 style: TextStyle(
@@ -63,15 +60,15 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
               padding: const EdgeInsets.only(top: 10),
               child: Text(
                 widget.movie.releaseDate,
-                style: TextStyle(
+                style: const TextStyle(
                   fontWeight: FontWeight.w600,
                   fontSize: 22,
                   color: Colors.grey,
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
+            const Padding(
+              padding: EdgeInsets.only(top: 10),
               child: Text(
                 "Cast",
                 style: TextStyle(
@@ -84,7 +81,7 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
               padding: const EdgeInsets.only(top: 10),
               child: Text(
                 widget.movie.cast,
-                style: TextStyle(
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 30,
                 ),
