@@ -1,16 +1,7 @@
-# intern
+# Movie magic app repository
 
-A new Flutter project.
+Shows information about the latest and trending movies using TMDB API.
+Functionality to add or remove movies from a watchlist.
 
-## Getting Started
+## This app is available on playstore here [Movie Magic](https://play.google.com/store/apps/details?id=com.sujjwal.movie_magic)
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
