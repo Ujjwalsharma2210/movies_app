@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:intern/get_movies.dart';
-import 'package:intern/tabs/home_page.dart';
-import 'package:intern/tabs/watch_list_page.dart';
-import 'package:intern/utils.dart';
+import 'package:movie_magic/get_movies.dart';
+import 'package:movie_magic/tabs/home_page.dart';
+import 'package:movie_magic/tabs/watch_list_page.dart';
+import 'package:movie_magic/utils.dart';
 
 // import 'package:path_provider/path_provider.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Movies app"),
+        title: const Text("Movie Magic"),
         actions: [
           IconButton(
             onPressed: () async {

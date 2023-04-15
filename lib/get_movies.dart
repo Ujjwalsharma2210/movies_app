@@ -6,31 +6,20 @@ class Movie {
   final String overview;
   final String posterUrl;
   final String releaseDate;
-  final String cast;
 
   Movie({
     required this.title,
     required this.overview,
     required this.posterUrl,
     required this.releaseDate,
-    required this.cast,
   });
 
   factory Movie.fromJson(Map<String, dynamic> json) {
-    var cast = '';
-    if (json['credits'] != null && json['credits']['cast'] != null) {
-      for (var i = 0; i < 3; i++) {
-        if (i > 0) cast += ', ';
-        cast += json['credits']['cast'][i]['name'];
-      }
-    }
-
     return Movie(
       title: json['title'],
       overview: json['overview'],
       posterUrl: 'https://image.tmdb.org/t/p/w500' + json['poster_path'],
       releaseDate: json['release_date'],
-      cast: cast,
     );
   }
 }

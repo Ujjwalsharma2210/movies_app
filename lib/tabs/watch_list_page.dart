@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:intern/database.dart';
-import 'package:intern/utils.dart';
+
+import '../database.dart';
+import '../utils.dart';
 
 double borderRadius = 12;
 

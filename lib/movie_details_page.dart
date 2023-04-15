@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'get_movies.dart';
 
 double borderRadius = 12;
+double padd = 10;
 
 class MovieDetailsPage extends StatefulWidget {
   final Movie movie;
@@ -19,76 +20,56 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
       appBar: AppBar(
         title: Text(widget.movie.title),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: ListView(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(borderRadius),
-              child: Image.network(widget.movie.posterUrl),
-            ),
-            const Padding(
-              padding: EdgeInsets.only(top: 10),
-              child: Text(
-                "Overview",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30,
-                ),
+      body: ListView(
+        children: [
+          ClipRRect(
+            // borderRadius: BorderRadius.circular(borderRadius),
+            child: Image.network(widget.movie.posterUrl),
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(10, 10, 0, 5),
+            child: Text(
+              "Overview",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 30,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Text(
-                widget.movie.overview,
-                style: const TextStyle(
-                  fontSize: 18,
-                ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+            child: Text(
+              widget.movie.overview,
+              style: const TextStyle(
+                fontSize: 18,
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 10),
-              child: Text(
-                "Released on",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30,
-                ),
+          ),
+          const Padding(
+            padding: const EdgeInsets.fromLTRB(10, 10, 0, 5),
+            child: Text(
+              "Released on",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 30,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Text(
-                widget.movie.releaseDate,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 22,
-                  color: Colors.grey,
-                ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+            child: Text(
+              widget.movie.releaseDate,
+              style: const TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 22,
+                color: Colors.grey,
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 10),
-              child: Text(
-                "Cast",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Text(
-                widget.movie.cast,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30,
-                ),
-              ),
-            ),
-          ],
-        ),
+          ),
+          SizedBox(
+            height: 50,
+          ),
+        ],
       ),
     );
   }

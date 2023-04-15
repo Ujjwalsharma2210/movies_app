@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:intern/movie_details_page.dart';
-import 'package:intern/tabs/watch_list_page.dart';
+import 'package:movie_magic/tabs/watch_list_page.dart';
 
 import 'get_movies.dart';
+import 'movie_details_page.dart';
 
 Color lightGrey = Colors.grey.shade300;
 Color textColor = Colors.grey.shade500;
@@ -36,13 +36,18 @@ Widget MovieListTile(BuildContext context, Movie movie) {
                 // mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 20),
-                    child: Text(
-                      movie.title,
-                      style: TextStyle(
-                        color: Colors.grey.shade800,
-                        fontSize: 22,
-                        fontWeight: FontWeight.w900,
+                    padding: const EdgeInsets.all(8.0),
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.8,
+                      child: Center(
+                        child: Text(
+                          movie.title,
+                          style: TextStyle(
+                            color: Colors.grey.shade800,
+                            fontSize: 25,
+                            fontWeight: FontWeight.w900,
+                          ),
+                        ),
                       ),
                     ),
                   ),

@@ -1,4 +1,4 @@
-package com.example.intern
+package com.sujjwal.movie_magic
 
 import io.flutter.embedding.android.FlutterActivity
 
