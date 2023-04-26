@@ -180,13 +180,16 @@ class WatchListTile extends StatelessWidget {
             child: Row(
               children: [
                 Checkbox(value: watched, onChanged: onChanged),
-                Text(
-                  movieName,
-                  style: TextStyle(
-                    fontSize: 16,
-                    decoration: watched
-                        ? TextDecoration.lineThrough
-                        : TextDecoration.none,
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.7,
+                  child: Text(
+                    movieName,
+                    style: TextStyle(
+                      fontSize: 16,
+                      decoration: watched
+                          ? TextDecoration.lineThrough
+                          : TextDecoration.none,
+                    ),
                   ),
                 ),
               ],

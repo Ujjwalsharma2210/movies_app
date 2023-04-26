@@ -62,6 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: tabs[currentPageIndex],
       bottomNavigationBar: NavigationBar(
         selectedIndex: currentPageIndex,
+        height: 70,
         onDestinationSelected: (int index) {
           setState(() {
             currentPageIndex = index;

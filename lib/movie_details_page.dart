@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:movie_magic/tabs/watch_list_page.dart';
+import 'package:movie_magic/utils.dart';
 
 import 'get_movies.dart';
 
@@ -66,8 +68,38 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
               ),
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: ElevatedButton(
+              onPressed: () {
+                bool add = true;
+                for (int i = 0; i < db.watchList.length; i++) {
+                  if (widget.movie.title == db.watchList[i][0]) {
+                    add = false;
+                    break;
+                  }
+                }
+                if (add) {
+                  db.watchList.add([widget.movie.title, false]);
+                  db.updateDatebase();
+                  showToast(context, "Movie added to watchlist", "Success");
+                } else {
+                  showToast(context, "Movie already in watchlist", "alert");
+                }
+              },
+              child: const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  "+ Add to watch later",
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+            ),
+          ),
           SizedBox(
-            height: 50,
+            height: 20,
           ),
         ],
       ),
