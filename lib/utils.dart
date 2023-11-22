@@ -9,9 +9,11 @@ Color lightGrey = Colors.grey.shade300;
 Color textColor = Colors.grey.shade500;
 Color primaryColor = Colors.deepPurple;
 
-double borderRadius = 12;
+double borderRadius = 16;
 
 Widget MovieListTile(BuildContext context, Movie movie) {
+  // String adultText = movie.adult ? "ADULT" : "";
+
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
     child: GestureDetector(
@@ -23,8 +25,17 @@ Widget MovieListTile(BuildContext context, Movie movie) {
       },
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          color: Colors.grey.shade300,
+          borderRadius: BorderRadius.circular(16),
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.shade300,
+              offset: Offset(0, 10),
+              blurRadius: 10,
+              spreadRadius: 1,
+              blurStyle: BlurStyle.normal,
+            )
+          ],
         ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -35,33 +46,36 @@ Widget MovieListTile(BuildContext context, Movie movie) {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 // mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  // Padding(
+                  //   padding: const EdgeInsets.all(8.0),
+                  //   child: SizedBox(
+                  //     width: MediaQuery.of(context).size.width * 0.8,
+                  //     child: Center(
+                  //       child: Text(
+                  //         movie.title,
+                  //         style: TextStyle(
+                  //           color: Colors.grey.shade800,
+                  //           fontSize: 28,
+                  //           fontWeight: FontWeight.w600,
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.8,
-                      child: Center(
-                        child: Text(
-                          movie.title,
-                          style: TextStyle(
-                            color: Colors.grey.shade800,
-                            fontSize: 25,
-                            fontWeight: FontWeight.w900,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 350,
                     child: ClipRRect(
-                      child: Image.network(movie.posterUrl),
+                      child: Image.network(
+                        movie.posterUrl,
+                        height: 400,
+                      ),
                       borderRadius: BorderRadius.circular(borderRadius),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 10),
                     child: Text(
-                      "Release Date : " + movie.releaseDate,
+                      "Released : " + movie.releaseDate,
                       style: TextStyle(
                         color: Colors.grey.shade700,
                         fontSize: 16,
@@ -73,8 +87,10 @@ Widget MovieListTile(BuildContext context, Movie movie) {
                     width: MediaQuery.of(context).size.width * 0.8,
                     child: Text(
                       movie.overview,
+                      maxLines: 3,
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                   ),
@@ -99,13 +115,25 @@ Widget MovieListTile(BuildContext context, Movie movie) {
                               context, "Movie already in watchlist", "alert");
                         }
                       },
-                      child: const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text(
-                          "+ Add to watch later",
-                          style: TextStyle(
-                            fontSize: 16,
-                          ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 5),
+                        child: Row(
+                          children: [
+                            Text(
+                              "Add to Watchlist",
+                              style: TextStyle(
+                                fontSize: 18,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            Icon(
+                              Icons.add,
+                              size: 18,
+                            ),
+                          ],
                         ),
                       ),
                     ),
@@ -172,16 +200,25 @@ class WatchListTile extends StatelessWidget {
         ),
         child: Container(
           decoration: BoxDecoration(
-            color: Colors.grey.shade300,
+            color: Colors.white,
             borderRadius: BorderRadius.circular(borderRadius),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.shade300,
+                offset: Offset(0, 10),
+                blurRadius: 10,
+                spreadRadius: 1,
+                blurStyle: BlurStyle.normal,
+              )
+            ],
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             child: Row(
               children: [
                 Checkbox(value: watched, onChanged: onChanged),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.7,
+                Container(
+                  width: 220,
                   child: Text(
                     movieName,
                     style: TextStyle(

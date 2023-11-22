@@ -6,12 +6,20 @@ class Movie {
   final String overview;
   final String posterUrl;
   final String releaseDate;
+  final bool adult;
+  final List<dynamic> genreIds;
+  final String backdropPath;
+  final double voteAverage;
 
   Movie({
     required this.title,
     required this.overview,
     required this.posterUrl,
     required this.releaseDate,
+    required this.adult,
+    required this.backdropPath,
+    required this.genreIds,
+    required this.voteAverage,
   });
 
   factory Movie.fromJson(Map<String, dynamic> json) {
@@ -20,6 +28,10 @@ class Movie {
       overview: json['overview'],
       posterUrl: 'https://image.tmdb.org/t/p/w500' + json['poster_path'],
       releaseDate: json['release_date'],
+      adult: json['adult'],
+      backdropPath: 'https://image.tmdb.org/t/p/w500' + json['backdrop_path'],
+      genreIds: json['genre_ids'],
+      voteAverage: json['vote_average'],
     );
   }
 }

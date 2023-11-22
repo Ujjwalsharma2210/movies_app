@@ -40,17 +40,17 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 20, top: 20, bottom: 20),
-          child: Text(
-            "Latest and Trending",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.grey.shade800,
-              fontSize: 30,
-            ),
-          ),
-        ),
+        // Padding(
+        //   padding: const EdgeInsets.only(left: 20, top: 20, bottom: 20),
+        //   child: Text(
+        //     "Latest and Trending",
+        //     style: TextStyle(
+        //       fontWeight: FontWeight.bold,
+        //       color: Colors.grey.shade800,
+        //       fontSize: 30,
+        //     ),
+        //   ),
+        // ),
         getMoviesList()
       ],
     );

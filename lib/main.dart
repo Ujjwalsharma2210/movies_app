@@ -5,7 +5,6 @@ import 'package:movie_magic/tabs/home_page.dart';
 import 'package:movie_magic/tabs/watch_list_page.dart';
 import 'package:movie_magic/utils.dart';
 
-// import 'package:path_provider/path_provider.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 
 void main() async {
@@ -24,7 +23,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      theme: ThemeData(
+        useMaterial3: true,
+        brightness: Brightness.light,
+      ),
       debugShowCheckedModeBanner: false,
       home: MyHomePage(),
     );
@@ -46,7 +49,12 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 10, top: 10, bottom: 10),
+          child: Image.asset('assets/icon/film-reel.png'),
+        ),
         title: const Text("Movie Magic"),
+        // elevation: 5,
         actions: [
           IconButton(
             onPressed: () async {
@@ -61,6 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: tabs[currentPageIndex],
       bottomNavigationBar: NavigationBar(
+        elevation: 5,
         selectedIndex: currentPageIndex,
         height: 70,
         onDestinationSelected: (int index) {
